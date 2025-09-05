@@ -1,6 +1,6 @@
 # Mod2 Assignment
 
-Run this for module 2 assignment.
+This assignment shows:
 
 - In-memory users & roles.
 - Symmetric: cryptography's Fernet.
