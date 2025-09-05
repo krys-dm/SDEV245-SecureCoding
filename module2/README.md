@@ -1,6 +1,6 @@
 # Mod2 Assignment
 
-Run this if you want the shortest path to the assignment.
+Run this for module 2 assignment.
 
 - In-memory users & roles (plaintext; **demo-only**).
 - Symmetric: `cryptography`'s Fernet.
