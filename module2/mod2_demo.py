@@ -131,7 +131,7 @@ def main():
     with out_file.open("w", encoding="utf-8") as f:
         f.write("=== REPORT OUTPUT ===\n\n")
 
-        f.write("== Users (demo-only; plaintext in code) ==\n")
+        f.write("== Users ==\n")
         f.write(json.dumps({"admin": {"role": "admin"}, "kate": {"role": "user"}}, indent=2))
 
         f.write("\n\n== Login Attempts ==\n")
