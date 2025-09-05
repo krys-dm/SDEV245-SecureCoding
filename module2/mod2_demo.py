@@ -3,10 +3,10 @@
 Mod 2 login + RBAC + crypto demo.
 
 What this script does:
-- Minimal in-memory "login" with two users (admin, kate) and roles.
+- In-memory "login" with two users (admin, kate) and their roles.
 - Role-based access control (only 'admin' can do admin-only actions).
-- Symmetric encryption demo using Fernet (from the 'cryptography' package).
-- Asymmetric encryption demo using RSA-OAEP (also from 'cryptography').
+- Symmetric encryption demo using Fernet.
+- Asymmetric encryption demo using RSA-OAEP.
 - Writes keys used, inputs, and outputs to 'report.txt'.
 
 Requires:
