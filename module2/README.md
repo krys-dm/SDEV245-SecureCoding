@@ -11,4 +11,4 @@ This assignment shows:
 pip install cryptography
 python mod2_demo.py
 ```
-This writes **`report.txt`** with the **keys used**, **inputs**, and **outputs**
+This writes **`report.txt`** with the keys used, inputs, and outputs.
