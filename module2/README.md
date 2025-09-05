@@ -2,7 +2,7 @@
 
 Run this for module 2 assignment.
 
-- In-memory users & roles (plaintext; **demo-only**).
+- In-memory users & roles.
 - Symmetric: cryptography's Fernet.
 - Asymmetric: RSA-OAEP (standard padding).
 
