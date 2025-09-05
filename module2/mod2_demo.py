@@ -116,7 +116,7 @@ def main():
     # Logins
     admin = login("admin", "admin123")
     kate  = login("kate",  "kate123")
-    wrong = login("kate",  "wrong") 
+    wrong = login("kate",  "nope") 
 
     # RBAC checks
     admin_can = require_role(admin, "admin")
