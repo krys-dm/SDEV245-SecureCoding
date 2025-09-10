@@ -11,7 +11,7 @@ python hash.py --string "hello world"
 
 ### Hash a file
 ```bash
-python hash.py --file path/to/file.py
+python hash.py --file (path/to/file.py)
 ```
 
 The script prints the **64-character SHA-256 digest** in hexadecimal format.
