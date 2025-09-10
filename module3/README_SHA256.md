@@ -22,7 +22,7 @@ The script prints the **64-character SHA-256 digest** in hexadecimal format.
 
 # Caesar Cipher Tool (`caesar.py`)
 
-This script encrypts or decrypts text using **Caesar cipher** with a key (shift value).
+This script encrypts or decrypts text using **Caesar cipher** with a key 7.
 
 ## Usage
 
@@ -37,7 +37,7 @@ python caesar.py
 
 # Digital Signature Demo (`sign.sh`)
 
-This script uses **OpenSSL** to generate keys, sign messages, and verify signatures.
+This script uses **OpenSSL** to generate keys, creates a message file, signs the file and verifies the signature.
 
 
 ## Usage
