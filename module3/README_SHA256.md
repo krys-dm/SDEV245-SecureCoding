@@ -14,11 +14,6 @@ python hash_generator.py --string "hello world"
 python hash_generator.py --file path/to/file.txt
 ```
 
-### Hash from stdin
-```bash
-echo "hello world" | python hash_generator.py
-```
-
 The script prints the **64-character SHA-256 digest** in hexadecimal format.
 
 ---
