@@ -21,3 +21,4 @@ echo "[+] Verifying signature..."
 openssl dgst -sha256 -verify public.pem -signature signature.bin message.txt
 
 echo "[+] Done. If you saw 'Verified OK', the signature is valid."
+
