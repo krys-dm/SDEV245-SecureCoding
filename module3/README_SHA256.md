@@ -35,7 +35,7 @@ python caesar.py
 ---
 ---
 
-# Digital Signature Demo (`signatures.sh`)
+# Digital Signature Demo (`sign.sh`)
 
 This script uses **OpenSSL** to generate keys, sign messages, and verify signatures.
 
@@ -44,15 +44,15 @@ This script uses **OpenSSL** to generate keys, sign messages, and verify signatu
 
 ### Initialize keys (ECDSA P-256 by default)
 ```bash
-chmod +x signatures.sh
+chmod +x sign.sh
 ```
 ```bash
-./signatures.sh
+./sign.sh
 ```
 
 ### Clean up files
 ```bash
-./signatures.sh clean
+./sign.sh clean
 ```
 
 ---
