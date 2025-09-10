@@ -1,6 +1,6 @@
 # SHA-256 Hasher (`hash.py`)
 
-This script computes **SHA-256 hashes** for strings, files, or stdin input.
+This script computes **SHA-256 hashes** for strings, and files.
 
 ## Usage
 
