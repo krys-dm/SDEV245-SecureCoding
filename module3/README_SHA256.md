@@ -1,4 +1,4 @@
-# SHA-256 Hasher (`hash_generator.py`)
+# SHA-256 Hasher (`hash.py`)
 
 This script computes **SHA-256 hashes** for strings, files, or stdin input.
 
@@ -6,12 +6,12 @@ This script computes **SHA-256 hashes** for strings, files, or stdin input.
 
 ### Hash a string
 ```bash
-python hash_generator.py --string "hello world"
+python hash.py --string "hello world"
 ```
 
 ### Hash a file
 ```bash
-python hash_generator.py --file path/to/file.txt
+python hash.py --file path/to/file.py
 ```
 
 The script prints the **64-character SHA-256 digest** in hexadecimal format.
@@ -28,15 +28,14 @@ This script encrypts or decrypts text using **Caesar cipher** with a key (shift 
 
 ### Encrypt text
 ```bash
-python caesar.py encrypt --key 3 --text "Caesar cipher tool works."
-# Output: Fdhvdu flskhu wrrl zrunv.
+python caesar.py 
 ```
 
 ---
 ---
 ---
 
-# Digital Signature Demo (`sign_verify.sh`)
+# Digital Signature Demo (`signatures.sh`)
 
 This script uses **OpenSSL** to generate keys, sign messages, and verify signatures.
 
@@ -45,30 +44,15 @@ This script uses **OpenSSL** to generate keys, sign messages, and verify signatu
 
 ### Initialize keys (ECDSA P-256 by default)
 ```bash
-./sign_verify.sh init
+chmod +x signatures.sh
 ```
-
-### Sign a message file
 ```bash
-echo "important message" > message.txt
-./sign_verify.sh sign message.txt
-```
-
-### Verify the signature
-```bash
-./sign_verify.sh verify message.txt signature.bin
-```
-
-### Optional: Use RSA instead of ECDSA
-```bash
-ALG=rsa ./sign_verify.sh init
-./sign_verify.sh sign message.txt
-./sign_verify.sh verify message.txt signature.bin
+./signatures.sh
 ```
 
 ### Clean up files
 ```bash
-./sign_verify.sh clean
+./signatures.sh clean
 ```
 
 ---
