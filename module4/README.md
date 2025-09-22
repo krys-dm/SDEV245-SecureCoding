@@ -35,11 +35,11 @@ python module4.py --infile secret.json --out recovered.txt --decrypt
 
 ## Examples
 
-# Encrypt
+## Encrypt
 python module4.py --infile plain.txt --out secret.json
-# Password: ********
+## Password: ********
 
-# Decrypt
+## Decrypt
 python module4.py --infile secret.json --out recovered.txt --decrypt
-# Password: ********
-# Integrity check: OK
+## Password: ********
+## Integrity check: OK
