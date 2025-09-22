@@ -5,7 +5,7 @@ this app demonstrates:
 - Password based AES-256-GCM symmetric encryption/decryption
 - Checks integrity by comparing pre-encryption SHA-256 after decryption
 
-Requires:
+requires:
   pip install cryptography
 """
 
