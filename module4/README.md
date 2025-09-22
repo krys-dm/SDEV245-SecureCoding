@@ -9,7 +9,7 @@ Open a terminal in the folder containing `module4.py`, then run:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate    # Windows: .venv\Scripts\activate
+.venv\Scripts\activate    # this is if you're using windows
 pip install cryptography
 ```
 
