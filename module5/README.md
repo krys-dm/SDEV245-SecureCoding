@@ -28,6 +28,7 @@ flask --app app.py run  # then open http://127.0.0.1:5000/
 - Admin: `admin@example.com` / `AdminPassw0rd!`
 - User:  `user@example.com`  / `UserPassw0rd!`
 
+
 ## Notes
 - `@login_required` protects routes.
 - `role_required("admin")` decorator enforces role-based access control.
