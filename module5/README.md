@@ -1,6 +1,6 @@
-# Secure OWASP App
+# Module 5: Assignment - OWASP Top 10 Code Fix
 
-App showing login and role-based access control w/secure patterns -- hashed passwords, protected routes, safe password reset.
+App showing **login** and **role-based access control** with secure patterns -- hashed passwords, protected routes, safe password reset.
 
 
 # requirements
@@ -9,17 +9,17 @@ App showing login and role-based access control w/secure patterns -- hashed pass
 - flask-sqlalchemy==3.1.1
 - passlib[bcrypt]==1.7.4
 - itsdangerous==2.2.0
+- argon2-cffi==23.1.0
 
 
 ## Quick start
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install flask==3.0.3 flask-login==0.6.3 flask-sqlalchemy==3.1.1 passlib[bcrypt]==1.7.4 itsdangerous==2.2.0
+source .venv/Scripts/activate  # Windows
+pip install flask flask-login flask-sqlalchemy passlib[bcrypt] itsdangerous argon2-cffi
 
-
-# initialize DB and seed users (admin & user)
+# initialize DB + sample users (admin & user)
 flask --app app.py init-db
 
 # run
