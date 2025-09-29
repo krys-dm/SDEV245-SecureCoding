@@ -1,4 +1,4 @@
-# Module 5 App
+# Module 5 role-based access contro App
 App showing **login** and **role-based access control** with secure patterns -- hashed passwords, protected routes, safe password reset.
 
 
