@@ -1,5 +1,6 @@
+# Module 5: Assignment - OWASP Top 10 Code Fix:
 
-This document includes Module 5: Assignment - OWASP Top 10 Code Fix:
+This document includes:
 Vulnerable code sample.  Why it’s vulnerable. Corrected/Secure versiono of code. Why the fix works. Official OWASP references
 
 ---
