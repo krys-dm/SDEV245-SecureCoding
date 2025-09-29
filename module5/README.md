@@ -14,7 +14,7 @@ itsdangerous==2.2.0
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/Scripts/activate  # Windows
 pip install -r requirements.txt
 
 # initialize DB and seed users (admin & user)
