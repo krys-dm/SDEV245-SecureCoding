@@ -2,12 +2,12 @@
 
 App showing **login** and **role-based access control** with secure patterns (hashed passwords, protected routes, safe password reset).
 
-# requirements
-flask==3.0.3
-flask-login==0.6.3
-flask-sqlalchemy==3.1.1
-passlib[bcrypt]==1.7.4
-itsdangerous==2.2.0
+REQUIREMENTS:
+- flask==3.0.3
+- flask-login==0.6.3
+- flask-sqlalchemy==3.1.1
+- passlib[bcrypt]==1.7.4
+- itsdangerous==2.2.0
 
 
 ## Quick start
