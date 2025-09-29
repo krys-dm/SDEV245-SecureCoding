@@ -1,15 +1,10 @@
-# OWASP Top 10 — Secure Application Project
 
-This document includes:
-  - Vulnerable code sample.
-  - Why it’s vulnerable.
-  - Corrected/Secure versiono of code.
-  - Why the fix works.
-  - Official OWASP references
+This document includes Module 5: Assignment - OWASP Top 10 Code Fix:
+Vulnerable code sample.  Why it’s vulnerable. Corrected/Secure versiono of code. Why the fix works. Official OWASP references
 
 ---
 
-## 1 — Broken Access Control (Node/Express example)
+## 1 — Broken Access Control 
 
 ### Vulnerable code 
 ```js
@@ -22,9 +17,9 @@ app.get('/profile/:userId', (req, res) => {
 ```
 
 ### Why it’s vulnerable
-- No authentication or authorization. Any caller can request another user’s profile by manipulating `:userId` (horizontal privilege escalation). Sensitive fields may be leaked.
+- No authentication or authorization. Any caller can request another user’s profile by manipulating `:userId`. Sensitive fields may be leaked.
 
-### Secure fix (Node/Express)
+### Secure fix 
 ```js
 function requireAuth(req, res, next) {
   if (!req.user) return res.status(401).json({ error: 'login required' });
@@ -59,7 +54,7 @@ app.get('/profile/:userId', requireAuth, allowSelfOrRole('admin'), async (req, r
 
 ---
 
-## 2 — Broken Access Control (Flask example)
+## 2 — Broken Access Control 
 
 ### Vulnerable code 
 ```py
@@ -70,9 +65,9 @@ def get_account(user_id):
 ```
 
 ### Why it’s vulnerable
-- Missing authentication/authorization; returns full object and may leak secrets.
+- Missing authentication/authorization and returns full object which may leak secrets.
 
-### Secure fix (Flask)
+### Secure fix 
 ```py
 from flask_login import login_required, current_user
 from flask import abort, jsonify
@@ -94,7 +89,7 @@ def get_account(user_id):
 
 ---
 
-## 3 — Cryptographic Failures (Java MD5)
+## 3 — Cryptographic Failures 
 
 ### Vulnerable code 
 ```java
@@ -107,9 +102,9 @@ public String hashPassword(String password) throws NoSuchAlgorithmException {
 ```
 
 ### Why it’s vulnerable
-- MD5 is broken and fast; no salt/work factor → trivial offline cracking.
+- MD5 is broken and fast; no salt/work factor = trivial offline cracking.
 
-### Secure fix (Java — BCrypt)
+### Secure fix 
 ```java
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -128,7 +123,7 @@ public class PasswordUtils {
 
 ---
 
-## 4 — Cryptographic Failures (Python SHA-1)
+## 4 — Cryptographic Failures 
 
 ### Vulnerable code 
 ```py
@@ -141,7 +136,7 @@ def hash_password(password):
 ### Why it’s vulnerable
 - SHA‑1 is deprecated and fast; no salt or memory hardness.
 
-### Secure fix (Python — Passlib Argon2/Bcrypt)
+### Secure fix 
 ```py
 from passlib.context import CryptContext
 pwd_context = CryptContext(schemes=["argon2", "bcrypt"], deprecated="auto")
@@ -154,14 +149,14 @@ def verify_password(password: str, hashed: str) -> bool:
 ```
 
 ### Why this fix works
-- Salted, adaptive hashing (memory-hard with Argon2).
+- Salted, adaptive hashing + memory-hard w/Argon2.
 
 ### OWASP reference
 - Cryptographic Failures: https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 
 ---
 
-## 5 — Injection (SQL, Java)
+## 5 — Injection 
 
 ### Vulnerable code 
 ```java
@@ -172,9 +167,9 @@ ResultSet rs = stmt.executeQuery(query);
 ```
 
 ### Why it’s vulnerable
-- String concatenation → SQL Injection (e.g., `' OR '1'='1`).
+- String concatenation = SQL Injection.
 
-### Secure fix (PreparedStatement)
+### Secure fix
 ```java
 String sql = "SELECT id, username, email FROM users WHERE username = ?";
 try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -191,7 +186,7 @@ try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
 ---
 
-## 6 — Injection (NoSQL / MongoDB, Node)
+## 6 — Injection 
 
 ### Vulnerable code
 ```js
@@ -204,9 +199,9 @@ app.get('/user', (req, res) => {
 ```
 
 ### Why it’s vulnerable
-- Operator/object injection (e.g., `{"$ne":""}`) can subvert the query.
+- Operator/object injection can subvert the query.
 
-### Secure fix (validate & `$eq`)
+### Secure fix 
 ```js
 const { query, validationResult } = require('express-validator');
 
@@ -230,7 +225,7 @@ app.get('/user',
 
 ---
 
-## 7 — Insecure Design (Flask reset password)
+## 7 — Insecure Design 
 
 ### Vulnerable code 
 ```py
@@ -245,10 +240,10 @@ def reset_password():
 ```
 
 ### Why it’s vulnerable
-- No identity verification, token, expiry, logging, or rate-limit → account takeover.
+- No identity verification, token, expiry, logging, or rate-limit can lead to account takeover.
 
 ### Secure design & example
-- Use **single-use, time-limited tokens**, email the link, verify before changing password, rate-limit and log.
+- Use single-use, time-limited tokens, email the link, verify before changing password, rate-limit and log.
 
 ```py
 # See runnable app: /request-reset -> /reset/<token>
@@ -256,14 +251,14 @@ def reset_password():
 ```
 
 ### Why this fix works
-- Prevents arbitrary resets and user enumeration; adds auditability.
+- Prevents arbitrary resets and user enumeration + adds auditability.
 
 ### OWASP reference
 - Insecure Design: https://owasp.org/Top10/A04_2021-Insecure_Design/
 
 ---
 
-## 8 — Software and Data Integrity Failures (3rd-party script)
+## 8 — Software and Data Integrity Failures
 
 ### Vulnerable code 
 ```html
@@ -271,7 +266,7 @@ def reset_password():
 ```
 
 ### Why it’s vulnerable
-- No integrity verification; if CDN is compromised, malicious JS executes in your origin.
+- If CDN is compromised, malicious JS executes in your origin.
 
 ### Secure fix (SRI + pin version)
 ```html
@@ -279,17 +274,17 @@ def reset_password():
         integrity="sha384-Base64HashHere"
         crossorigin="anonymous"></script>
 ```
-- Pin versions, consider self-hosting, and use SCA in CI.
+- Pin versions, self host + use SCA in CI.
 
 ### Why this fix works
-- Browser verifies script content against the expected hash; prevents tampered loads.
+- Browser verifies script content against the expected hash + prevents tampered loads.
 
 ### OWASP reference
 - Vulnerable and Outdated Components / Integrity: https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/
 
 ---
 
-## 9 — Server-Side Request Forgery (SSRF)
+## 9 — Server-Side Request Forgery
 
 ### Vulnerable code
 ```py
@@ -301,7 +296,7 @@ print(response.text)
 ### Why it’s vulnerable
 - Unrestricted outbound fetch allows access to internal metadata/services.
 
-### Secure fix (whitelist + network egress controls)
+### Secure fix
 ```py
 import urllib.parse, socket, ipaddress, requests
 
@@ -320,14 +315,14 @@ def fetch_url(user_url):
 ```
 
 ### Why this fix works
-- Prevents access to internal networks/resources even if user supplies a malicious URL; network policy adds defense-in-depth.
+- Prevents access to internal networks/resources even if user supplies a malicious URL.
 
 ### OWASP reference
 - SSRF: https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/
 
 ---
 
-## 10 — Identification & Authentication Failures (plain comparison)
+## 10 — Identification & Authentication Failures
 
 ### Vulnerable code
 ```java
@@ -337,9 +332,9 @@ if (inputPassword.equals(user.getPassword())) {
 ```
 
 ### Why it’s vulnerable
-- Plaintext storage or naive comparison; no salted adaptive hashing; potential timing leaks; no MFA/rate limit/session hardening.
+- Plaintext storage or naive comparison + no salted adaptive hashing + potential timing leaks + no MFA/rate limit/session hardening.
 
-### Secure fix (Java — BCrypt + proper verification)
+### Secure fix 
 ```java
 BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 if (enc.matches(inputPassword, user.getPasswordHash())) {
@@ -347,10 +342,8 @@ if (enc.matches(inputPassword, user.getPasswordHash())) {
 }
 ```
 
-**Additional controls**: MFA, HTTPS, rate limiting, lockout/slowdown, secure session cookies, logging.
-
 ### Why this fix works
-- Correct verification of salted, adaptive hashes; combined controls harden authentication.
+- Correct verification of salted, adaptive hashes + combined controls harden authentication.
 
 ### OWASP reference
 - Identification & Authentication Failures: https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
