@@ -1,5 +1,4 @@
-# Module 5: Assignment - OWASP Top 10 Code Fix
-
+# Module 5 App
 App showing **login** and **role-based access control** with secure patterns -- hashed passwords, protected routes, safe password reset.
 
 
