@@ -1,8 +1,9 @@
-# Secure OWASP App (app.py)
+# Secure OWASP App
 
-App showing **login** and **role-based access control** with secure patterns (hashed passwords, protected routes, safe password reset).
+App showing login and role-based access control w/secure patterns -- hashed passwords, protected routes, safe password reset.
 
-REQUIREMENTS:
+
+# requirements
 - flask==3.0.3
 - flask-login==0.6.3
 - flask-sqlalchemy==3.1.1
@@ -14,8 +15,9 @@ REQUIREMENTS:
 
 ```bash
 python -m venv .venv
-source .venv/Scripts/activate  # Windows
-pip install -r requirements.txt
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install flask==3.0.3 flask-login==0.6.3 flask-sqlalchemy==3.1.1 passlib[bcrypt]==1.7.4 itsdangerous==2.2.0
+
 
 # initialize DB and seed users (admin & user)
 flask --app app.py init-db
@@ -27,7 +29,6 @@ flask --app app.py run  # then open http://127.0.0.1:5000/
 ### Sample accounts
 - Admin: `admin@example.com` / `AdminPassw0rd!`
 - User:  `user@example.com`  / `UserPassw0rd!`
-
 
 ## Notes
 - `@login_required` protects routes.
