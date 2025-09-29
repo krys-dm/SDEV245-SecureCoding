@@ -22,10 +22,10 @@ pip install flask flask-login flask-sqlalchemy passlib[bcrypt] itsdangerous argo
 
 
 # initialize DB + sample users (admin & user)
-python -m flask --app app_db.py init-db
+python -m flask --app app.py init-db
 
 # run
-python -m flask --app app_db.py run  # then open http://127.0.0.1:5000/
+python -m flask --app app.py run  # then open http://127.0.0.1:5000/
 ```
 
 ### Sample accounts
