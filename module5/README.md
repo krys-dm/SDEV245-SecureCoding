@@ -18,10 +18,10 @@ source .venv/Scripts/activate  # Windows
 pip install -r requirements.txt
 
 # initialize DB and seed users (admin & user)
-flask --app OWASP.py init-db
+flask --app app.py init-db
 
 # run
-flask --app OWASP.py run  # then open http://127.0.0.1:5000/
+flask --app app.py run  # then open http://127.0.0.1:5000/
 ```
 
 ### Sample accounts
