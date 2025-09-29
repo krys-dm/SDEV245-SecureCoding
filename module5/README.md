@@ -1,4 +1,4 @@
-# Secure OWASP App
+# Secure OWASP App (app.py)
 
 App showing **login** and **role-based access control** with secure patterns (hashed passwords, protected routes, safe password reset).
 
